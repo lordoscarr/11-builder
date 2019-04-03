@@ -50,7 +50,6 @@ h1 {
   background: #fafafa;
   height: 56px;
   font-size: 16px;
-  text-transform: capitalize;
   border-radius: 3px;
   -webkit-appearance: none;
   border: none;
@@ -279,13 +278,13 @@ h1 {
   z-index: 100;
   width: 100%;
   font-weight: 800;
-  top: 444px;
+  top: 84.5%;
   color: #2854ad;
+  background: white;
   text-align: center;
   position: absolute;
   text-transform: uppercase;
   margin: 0;
-  line-height: 50px;
   user-select: none;
 }
 
@@ -299,13 +298,13 @@ h1 {
   background: transparent;
   color: transparent;
   caret-color: #2854ad;
-  top: 444px;
+  outline: none;
+  top: 84.5%;
   border: 0;
   padding: 0;
   display: block;
   margin: 0;
   border-radius: 5px;
-  line-height: 50px;
   width: 100%;
   text-align: center;
   opacity: 0;
@@ -372,6 +371,12 @@ h1 {
 .disabled {
   cursor: default !important;
   opacity: 0.6;
+}
+
+@media screen and (max-height: 700px) {
+  .App {
+    margin-top: 50px;
+  }
 }
 
 @media screen and (max-width: 910px) {
@@ -504,13 +509,13 @@ h1 {
   }
 
   .Pitch .LineupName {
-    top: 3.5%;
-    font-size: 8vw;
+    top: 84.5%;
+    font-size: 4vw;
   }
 
   .Pitch .EditLineupName {
-    top: 3.5%;
-    font-size: 8vw;
+    top: 84.5%;
+    font-size: 4vw;
   }
 
   .Pitch .PositionIndicator {
@@ -563,8 +568,8 @@ h1 {
   }
 
   .App .Pitch .LineupName, .EditLineupName {
-    font-size: 48px !important;
-    top: 6% !important;
+    font-size: 20px;
+    top: 84.7%;
   }
 
   .App .Pitch .PlayerCard p {

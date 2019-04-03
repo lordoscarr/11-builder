@@ -3,7 +3,7 @@ import React from 'react'
 export default class Customize extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { pitchColor: 'green' }
+    this.state = { pitchColor: 'Hemma' }
   }
   
   toggleTacticMenu = () => {
@@ -53,7 +53,7 @@ export default class Customize extends React.Component {
       const isClickInside = button.contains(e.target);
       if (!isClickInside) {
         // User clicked outside
-        if (button.classList.contains('Tactic') && button.classList.contains('expanded')) {
+        if (button.classList.contains('-') && button.classList.contains('expanded')) {
           // Collapse tactic menu
           e.preventDefault()
           this.toggleTacticMenu()
@@ -72,7 +72,7 @@ export default class Customize extends React.Component {
       DownloadButton = <a
         title="Generate lineup"
         className="CTA disabled"
-      >Add 11 players to create lineup</a>
+      >Lägg till 11 spelare</a>
     } else if (this.props.downloadStatus === "create") {
       DownloadButton = <a
         title="Generate lineup"
@@ -81,19 +81,19 @@ export default class Customize extends React.Component {
           // Display loading message
           this.props.createCanvas()
         }}
-      >Get my lineup</a>
+      >Skapa bild</a>
     } else if (this.props.downloadStatus === "loading") {
       DownloadButton = <a
         title="Generate lineup"
         className="CTA disabled"
-      >Creating lineup...</a>
+      >Genererar bild...</a>
     } else {
       DownloadButton = <a
         title="Generate lineup"
         className="CTA"
         download="11builder"
         href={this.props.downloadLink}
-      >Donwload lineup as a PNG</a>
+      >Ladda ner bild</a>
     }
     return(
       <div className="Customize">
@@ -107,19 +107,17 @@ export default class Customize extends React.Component {
             <div data-tactic="4-2-3-1" onClick={() => { this.props.setActiveTactic('3-5-2') }}>3-5-2</div>
             <div data-tactic="4-2-3-1" onClick={() => { this.props.setActiveTactic('3-4-3') }}>3-4-3</div>
           </div>
-          <p className="Selected">{`Tactic: ${this.props.activeTacticName}`}</p>
+          <p className="Selected">{this.props.activeTacticName}</p>
         </div>
         <div
           className="Pitch-style Menu"
           onClick={() => {this.toggleColorMenu()}}
         >
           <div className="Options">
-            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('green') }}>Green</div>
-            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('blue') }}>Blue</div>
-            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('red') }}>Red</div>
-            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('black') }}>Black</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('Hemma') }}>Hemma</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('Borta') }}>Borta</div>
           </div>
-          <p className="Selected">{`Colour: ${this.state.pitchColor}`}</p>
+          <p className="Selected">{this.state.pitchColor}</p>
         </div>
         {DownloadButton}
       </div>
