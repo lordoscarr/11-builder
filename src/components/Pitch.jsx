@@ -18,7 +18,7 @@ export default class Pitch extends React.Component {
   componentDidMount() {
     window.addEventListener("resize", this.getPitchCoords)
     this.getPitchCoords()
-    this.setState({ lineupName: 'My team' })
+    this.setState({ lineupName: 'Avbytare: ' })
     // Hide lineup name field on every click outside of it
     document.addEventListener("touchstart", e => {
       if (e.target !== document.querySelector(".EditLineupName")) {
@@ -108,7 +108,7 @@ export default class Pitch extends React.Component {
           <textarea
             className="EditLineupName"
             rows="1"
-            maxLength="21"
+            maxLength="65"
             value={this.state.lineupName}
             onChange={this.editLineupName}
             onMouseEnter={e => {

@@ -294,7 +294,7 @@ export default class PlayerCard extends React.Component {
       >
         <img
           className="Portrait"
-          src={ this.state.picture }
+          src="/data/images/shirt/homeshirt.png"
           alt={ this.props.player.name }
           onDragStart={ e => { e.preventDefault() } }
         />
