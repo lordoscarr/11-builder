@@ -102,10 +102,10 @@ export default class Customize extends React.Component {
           onClick={ () => {this.toggleTacticMenu()} }
         >
           <div className="Options">
-            <div data-tactic="4-3-3" onClick={() => { this.props.setActiveTactic('4-3-3') }}>4-3-3</div>
-            <div data-tactic="4-3-3" onClick={() => { this.props.setActiveTactic('4-4-2') }}>4-4-2</div>
-            <div data-tactic="4-3-3" onClick={() => { this.props.setActiveTactic('3-5-2') }}>3-5-2</div>
-            <div data-tactic="4-3-3" onClick={() => { this.props.setActiveTactic('3-4-3') }}>3-4-3</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.props.setActiveTactic('4-2-3-1') }}>4-2-3-1</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.props.setActiveTactic('4-4-2') }}>4-4-2</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.props.setActiveTactic('3-5-2') }}>3-5-2</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.props.setActiveTactic('3-4-3') }}>3-4-3</div>
           </div>
           <p className="Selected">{`Tactic: ${this.props.activeTacticName}`}</p>
         </div>
@@ -114,10 +114,10 @@ export default class Customize extends React.Component {
           onClick={() => {this.toggleColorMenu()}}
         >
           <div className="Options">
-            <div data-tactic="4-3-3" onClick={() => { this.setColor('green') }}>Green</div>
-            <div data-tactic="4-3-3" onClick={() => { this.setColor('blue') }}>Blue</div>
-            <div data-tactic="4-3-3" onClick={() => { this.setColor('red') }}>Red</div>
-            <div data-tactic="4-3-3" onClick={() => { this.setColor('black') }}>Black</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('green') }}>Green</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('blue') }}>Blue</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('red') }}>Red</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('black') }}>Black</div>
           </div>
           <p className="Selected">{`Colour: ${this.state.pitchColor}`}</p>
         </div>

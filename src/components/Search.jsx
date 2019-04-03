@@ -84,7 +84,7 @@ export default class Search extends React.Component {
           value={this.state.value}
           onFocus={() => { document.querySelector('.Results').style.display = 'block' }}
           onChange={this.updateSearch}
-          placeholder="Search for a player..."
+          placeholder="Välj spelare..."
           autoFocus
         />
         <div className="Results" style={{
@@ -92,7 +92,7 @@ export default class Search extends React.Component {
         }}>
           {this.state.noMatches &&
             <div className="Result-player">
-              <p className="Status">No matching player</p>
+              <p className="Status">Inga resultat</p>
             </div>
           }
           {this.props.selectedPlayers.length < 11 &&
@@ -125,12 +125,12 @@ export default class Search extends React.Component {
           {this.state.isLoading &&
             // Display loading messages while waiting for results
             <div className="Result-player">
-              <p className="Status">Loading players...</p>
+              <p className="Status">Laddar spelare...</p>
             </div>
           }
           {this.props.selectedPlayers.length >= 11 && window.innerWidth > 910 &&
             <div className="Result-player">
-              <p className="Status">Can't add more players</p>
+              <p className="Status">Kan inte lägga till fler spelare</p>
             </div>
           }
         </div>

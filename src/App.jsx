@@ -19,8 +19,8 @@ export default class App extends React.Component {
     super(props)
     this.state = {
       playersIndex: require('./data/index.json'),
-      activeTactic: require('./tactics/4-3-3.json'),
-      activeTacticName: "4-3-3",
+      activeTactic: require('./tactics/4-2-3-1.json'),
+      activeTacticName: "4-2-3-1",
       fileBackups: {},
       selectedPlayers: [],
       results: [],
