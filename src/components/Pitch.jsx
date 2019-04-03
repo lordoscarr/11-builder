@@ -4,7 +4,7 @@ import PlayerCard from "./PlayerCard.jsx"
 import PositionIndicator from "./PositionIndicator.jsx"
 
 // Cache pitch image for offline use
-import pitchImage from "../data/bg.svg"
+import pitchImage from "../data/bg.jpg"
 
 export default class Pitch extends React.Component {
   constructor(props) {
