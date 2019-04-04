@@ -88,7 +88,7 @@ export default class Customize extends React.Component {
       DownloadButton = <a
         title="Generate lineup"
         className="CTA"
-        download="lineup"
+        download="11builder"
         href={this.props.downloadLink}
       >Ladda ner bild</a>
     }
