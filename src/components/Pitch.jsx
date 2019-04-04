@@ -11,6 +11,7 @@ export default class Pitch extends React.Component {
     super(props)
     this.state = {
       value: "",
+      home: this.props.home,
       occupiedPositions: []
     }
   }
@@ -137,6 +138,7 @@ export default class Pitch extends React.Component {
               <PlayerCard
                 player={player}
                 key={player.id}
+                home={this.props.home}
                 tactic={this.props.tactic}
                 parentFrame={this.state.frame}
                 unselectPlayer={this.props.unselectPlayer}

@@ -21,6 +21,7 @@ export default class App extends React.Component {
       playersIndex: require('./data/index.json'),
       activeTactic: require('./tactics/4-2-3-1.json'),
       activeTacticName: "4-2-3-1",
+      home: 'Hemma',
       fileBackups: {},
       selectedPlayers: [],
       results: [],
@@ -218,6 +219,7 @@ export default class App extends React.Component {
             downloadStatus={this.state.downloadStatus}
             createCanvas={this.createCanvas}
             downloadLink={this.state.downloadLink}
+            home={this.state.home}
           />
         </div>
         <Pitch
@@ -228,6 +230,7 @@ export default class App extends React.Component {
           markDownloadAsObsolete={this.markDownloadAsObsolete}
           portraitPlaceholder={portraitPlaceholder}
           hideNameInput={this.hideNameInput}
+          home={this.state.home}
         />
       </div>
     )

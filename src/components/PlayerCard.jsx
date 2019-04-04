@@ -1,6 +1,8 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
+let shirt = "/data/images/shirt/homeshirt.png";
+
 export default class PlayerCard extends React.Component {
   constructor(props) {
     super(props)
@@ -12,9 +14,11 @@ export default class PlayerCard extends React.Component {
       originY: 0,
       lastTouch: {x: 0, y: 0},
       picture: this.props.portraitPlaceholder,
-      pictureBackup: this.props.player.photo
+      pictureBackup: this.props.player.photo,
+      home: this.props.home
     }
   }
+
 
   componentDidMount() {
     // Count loops
@@ -22,23 +26,34 @@ export default class PlayerCard extends React.Component {
     // Auto position the player
     mainLoop: for (let preferredPosition of this.props.player.positions) {
       i++
+      
       // Support for 2 central defenders
-      if (preferredPosition === "DC") {
-        if (this.props.occupiedPositions.find(e => e === "DC1") === undefined) {
-          preferredPosition = "DC1"
+      if (preferredPosition === "CB") {
+        if (this.props.occupiedPositions.find(e => e === "CB1") === undefined) {
+          preferredPosition = "CB1"
         } else {
-          preferredPosition = "DC2"
+          preferredPosition = "CB2"
         }
       }
+
+      // Support for 2 central midfielders
+      if (preferredPosition === "CM") {
+        if (this.props.occupiedPositions.find(e => e === "CB1") === undefined) {
+          preferredPosition = "CM1"
+        } else {
+          preferredPosition = "CM2"
+        }
+      }
+
       // Support for special positions
-      if (preferredPosition === "ATT") {
-        preferredPosition = "BU"
-      } else if (preferredPosition === "MDC" || preferredPosition === "MOC") {
-        preferredPosition = "MC"
-      } else if (preferredPosition === "DLG") {
-        preferredPosition = "DG"
-      } else if (preferredPosition === "DLD") {
-        preferredPosition = "DD"
+      if (preferredPosition === "CF") {
+        preferredPosition = "ST"
+      } else if (preferredPosition === "CDM" || preferredPosition === "CAM") {
+        preferredPosition = "CM"
+      } else if (preferredPosition === "LWB") {
+        preferredPosition = "LB"
+      } else if (preferredPosition === "RWB") {
+        preferredPosition = "RB"
       }
       for (const position in this.props.tactic) {
         // Check if the position is part of the selected tactic
@@ -287,18 +302,32 @@ export default class PlayerCard extends React.Component {
   }
 
   render() {
+  console.log(this.state.home);
+
+    let image;
+
+    if(this.props.player.positions[0] === "GK"){
+      image = <img
+          className="Portrait"
+          src="/data/images/shirt/gkshirt.png"
+          alt={ this.props.player.nickname }
+          onDragStart={ e => { e.preventDefault() } }
+        />
+    }else{
+      image = <img
+      className="Portrait"
+      src={ shirt }
+      alt={ this.props.player.nickname }
+      onDragStart={ e => { e.preventDefault() } }
+    />
+    }
     return(
       <div
         className={`PlayerCard Player${this.props.player.id}`}
         key={this.props.player.id}
       >
-        <img
-          className="Portrait"
-          src="/data/images/shirt/homeshirt.png"
-          alt={ this.props.player.name }
-          onDragStart={ e => { e.preventDefault() } }
-        />
-        <p>{this.props.player.shortName}</p>
+        {image}
+        <p>{this.props.player.nickname}</p>
       </div>
     )
   }

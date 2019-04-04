@@ -2,8 +2,11 @@ import React from 'react'
 
 export default class Customize extends React.Component {
   constructor(props) {
-    super(props)
-    this.state = { pitchColor: 'Hemma' }
+    super(props);
+    this.state = {
+      home: this.props.home
+    }
+    console.log(this.props.home);
   }
   
   toggleTacticMenu = () => {
@@ -19,32 +22,14 @@ export default class Customize extends React.Component {
   }
   
   toggleColorMenu = () => {
-    const colorButton = document.querySelector('.Pitch-style')
-    if (colorButton.classList.contains('expanded')) {
+    const homeOrAwayButton = document.querySelector('.HomeOrAway')
+    if (homeOrAwayButton.classList.contains('expanded')) {
       // Collapse menu
-      colorButton.classList.remove('expanded')
+      homeOrAwayButton.classList.remove('expanded')
     } else {
       // Expand menu
-      colorButton.classList.add('expanded')
-      this.outsideClickHandler(colorButton)
-    }
-  }
-
-  setColor = color => {
-    const palette = {
-      green: "#2E7D32",
-      red: "#921616",
-      blue: "#303F9F",
-      black: "#212121"
-    }
-    // Apply color change
-    const pitch = document.querySelector('.Pitch')
-    pitch.style.background = palette[color]
-    // Save color change
-    this.setState({ pitchColor: color })
-    // Disable direct download
-    if (this.props.playersList.length === 11) {
-      this.props.markDownloadAsObsolete()
+      homeOrAwayButton.classList.add('expanded')
+      this.outsideClickHandler(homeOrAwayButton)
     }
   }
 
@@ -57,13 +42,25 @@ export default class Customize extends React.Component {
           // Collapse tactic menu
           e.preventDefault()
           this.toggleTacticMenu()
-        } else if (button.classList.contains('Pitch-style') && button.classList.contains('expanded')) {
+        } else if (button.classList.contains('HomeOrAway') && button.classList.contains('expanded')) {
           // Collapse tactic menu
           e.preventDefault()
           this.toggleColorMenu()
         }
       }
     });
+  }
+
+  setHome = (home) => {
+    if(home){
+      this.setState({
+        home: 'Hemma'
+      })
+    }else{
+      this.setState({
+        home: 'Borta'
+      })    
+    }
   }
 
   render() {
@@ -91,7 +88,7 @@ export default class Customize extends React.Component {
       DownloadButton = <a
         title="Generate lineup"
         className="CTA"
-        download="11builder"
+        download="lineup"
         href={this.props.downloadLink}
       >Ladda ner bild</a>
     }
@@ -110,14 +107,15 @@ export default class Customize extends React.Component {
           <p className="Selected">{this.props.activeTacticName}</p>
         </div>
         <div
-          className="Pitch-style Menu"
+          className="HomeOrAway Menu"
           onClick={() => {this.toggleColorMenu()}}
         >
           <div className="Options">
-            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('Hemma') }}>Hemma</div>
-            <div data-tactic="4-2-3-1" onClick={() => { this.setColor('Borta') }}>Borta</div>
+            <div data-tactic="4-2-3-1" onClick={() => { this.setHome(true)}}>Hemma</div>
+            {//<div data-tactic="4-2-3-1" onClick={() => { this.setHome(false)}}>Borta</div>
+            }
           </div>
-          <p className="Selected">{this.state.pitchColor}</p>
+          <p className="Selected">{this.state.home}</p>
         </div>
         {DownloadButton}
       </div>

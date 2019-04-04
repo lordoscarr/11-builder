@@ -7,7 +7,7 @@ export default class SearchResult extends React.Component {
       picture: this.props.portraitPlaceholder,
       logo: this.props.logoPlaceholder,
       pictureBackup: this.props.player.photo,
-      logoBackup: this.props.player.club.logo
+      logoBackup: ''
     }
   }
 
@@ -54,7 +54,7 @@ export default class SearchResult extends React.Component {
         }
         <img
           className="Icon"
-          alt={this.props.player.club.name}
+          alt={this.props.player.team}
           src={this.state.logo}
         />
       </div>
