@@ -5,6 +5,8 @@ import Search from './components/Search.jsx'
 import Customize from './components/Customize.jsx'
 import Pitch from './components/Pitch.jsx'
 import fonts from "./data/fonts.js"
+import html2canvas from 'html2canvas';
+import $ from 'jquery';
 
 // Import dependencies
 const rasterizeHTML = require("rasterizehtml")
@@ -100,6 +102,18 @@ export default class App extends React.Component {
           `
         })
       })
+  }
+
+  downloadImage = () => {
+    $(".Pitch").addClass("ZoomImage");
+    
+    html2canvas(document.querySelector(".Pitch")).then(canvas => {
+      var a = document.createElement('a');
+      // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+      a.href = canvas.toDataURL("image/png");
+      a.download = 'lineup.png';
+      a.click();
+  });
   }
 
   markDownloadAsObsolete = () => {
@@ -220,6 +234,7 @@ export default class App extends React.Component {
             createCanvas={this.createCanvas}
             downloadLink={this.state.downloadLink}
             home={this.state.home}
+            parent={this}
           />
         </div>
         <Pitch

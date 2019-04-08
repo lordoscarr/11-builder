@@ -579,4 +579,8 @@ h1 {
   .App .Pitch.Transform {
     transform: translate(0, 65px) !important;
   }
+
+  .App .Pitch .ZoomImage {
+    transform: scale(2,2)!important;
+  }
 }

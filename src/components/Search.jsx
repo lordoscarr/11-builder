@@ -72,9 +72,11 @@ export default class Search extends React.Component {
       },
       id: this.state.value,
       name: this.state.value,
-      positions: ["MC"],
+      positions: ["CM"],
       rating: "0",
-      shortName: this.state.value
+      shortName: this.state.value,
+      nickname: this.state.value,
+      team: ""
     }
     return (
       <div>
