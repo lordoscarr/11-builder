@@ -104,9 +104,7 @@ export default class App extends React.Component {
       })
   }
 
-  downloadImage = () => {
-    $(".Pitch").addClass("ZoomImage");
-    
+  downloadImage = () => {    
     html2canvas(document.querySelector(".Pitch")).then(canvas => {
       var a = document.createElement('a');
       // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
