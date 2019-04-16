@@ -5,8 +5,8 @@ import Search from './components/Search.jsx'
 import Customize from './components/Customize.jsx'
 import Pitch from './components/Pitch.jsx'
 import fonts from "./data/fonts.js"
-import html2canvas from 'html2canvas';
-import $ from 'jquery';
+//import html2canvas from 'html2canvas';
+//import $ from 'jquery';
 
 // Import dependencies
 const rasterizeHTML = require("rasterizehtml")
