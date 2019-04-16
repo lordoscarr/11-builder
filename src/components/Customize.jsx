@@ -89,7 +89,7 @@ export default class Customize extends React.Component {
         title="Generate lineup"
         className="CTA"
         download="11builder"
-        onClick={() => { this.props.parent.downloadImage() }}
+        href={this.props.downloadLink}
       >Ladda ner bild</a>
     }
     return(
